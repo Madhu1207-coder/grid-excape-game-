@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instagram Style Game Frame</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20241111/pngtree-neon-glow-video-game-controllers-on-a-black-background-perfect-for-image_16521726.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Segoe UI', 'Noto Color Emoji', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .instagram-post {
+      width: 420px;
+      max-height: 90vh;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .profile-flip {
+      width: 40px;
+      height: 40px;
+      perspective: 600px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-inner.flip {
+      transform: rotateY(180deg);
+    }
+
+    .flip-front, .flip-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 50%;
+    }
+
+    .flip-front img, .flip-back {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .flip-back {
+      background: #333;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotateY(180deg);
+      font-size: 10px;
+      padding: 5px;
+      text-align: center;
+    }
+
+    .username-block {
+      flex-grow: 1;
+    }
+
+    .username-input {
+      font-weight: 700;
+      font-size: 14px;
+      color: #333;
+      border: none;
+      outline: none;
+      background: transparent;
+    }
+
+    .user-text-input {
+      font-size: 11px;
+      color: #666;
+      border: none;
+      background: transparent;
+      width: 100%;
+      outline: none;
+    }
+
+    .follow-button {
+      background: #ed4956;
+      color: white;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 16px;
+      font-size: 13px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .post-image {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    canvas {
+      background-image: url('https://img.freepik.com/premium-vector/neon-game-joystick-icon-glowing-joystick-brick-wall-background-vector-illustration_175392-111.jpg');
+      border-radius: 0px;
+      background-position: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .post-footer {
+      padding: 10px 15px;
+      font-size: 13px;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .caption {
+      margin-top: 5px;
+    }
+
+    .caption strong {
+      margin-right: 5px;
+    }
+
+    .caption-input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 13px;
+      font-family: 'Dancing Script', cursive;
+      background: transparent;
+      color: #555;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .controls button {
+      margin: 6px 6px 6px 0;
+      padding: 8px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(45deg, #1a5eb8, #50d0ea);
+      color: rgb(16, 14, 14);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background: linear-gradient(45deg, #1ee0fa, #226be1);
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .emoji-keyboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 10px;
+      border-top: 1px solid #ddd;
+    }
+
+    .emoji-keyboard button {
+      font-size: 20px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .post-image:active::after {
+      content: "❤️";
+      position: absolute;
+      font-size: 2rem;
+      color: #ff4d6d;
+      animation: floatHeart 1s ease-out forwards;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes floatHeart {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+      100% { transform: translate(-50%, -120%) scale(1.8); opacity: 0; }
+    }
+  </style>
+</head>
+<body onload="startGame()">
+  <div class="instagram-post">
+    <header class="post-header">
+      <div class="profile-flip" onclick="flipProfile()">
+        <div class="flip-inner" id="flipInner">
+          <div class="flip-front">
+            <label for="profile-upload">
+              <img id="profileImage" src="https://i.imgur.com/7k12EPD.png" alt="Profile" />
+            </label>
+          </div>
+          <div class="flip-back">
+            Game Player 🎮<br/>Loves Coding ❤️
+          </div>
+        </div>
+      </div>
+      <input type="file" id="profile-upload" accept="image/*" onchange="changeProfileImage(event)" />
+      <div class="username-block">
+        <input type="text" class="username-input" id="usernameInput" value="Username 😊" oninput="syncCaption()" />
+        <input type="text" class="user-text-input" id="userStatus" value="Playing game 🎮🔥" />
+      </div>
+      <button class="follow-button">Follow</button>
+    </header>
+    <section class="post-image"></section>
+    <footer class="post-footer">
+      <div>103 views</div>
+      <div class="caption">
+        <strong id="captionName">Username</strong>
+        <input type="text" class="caption-input" id="captionInput" value="Having fun with this game! 🚀" oninput="syncCaption()" />
+      </div>
+      <nav class="controls">
+        <button onmousedown="moveup()">UP</button>
+        <button onmousedown="movedown()">DOWN</button>
+        <button onmousedown="moveleft()">LEFT</button>
+        <button onmousedown="moveright()">RIGHT</button>
+        <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">ACCELERATE</button>
+      </nav>
+      <div class="emoji-keyboard">
+        <button onclick="insertEmoji('😊')">😊</button>
+        <button onclick="insertEmoji('🎮')">🎮</button>
+        <button onclick="insertEmoji('🔥')">🔥</button>
+        <button onclick="insertEmoji('🚀')">🚀</button>
+        <button onclick="insertEmoji('❤️')">❤️</button>
+        <button onclick="insertEmoji('😂')">😂</button>
+        <button onclick="insertEmoji('😍')">😍</button>
+        <button onclick="insertEmoji('😎')">😎</button>
+        <button onclick="insertEmoji('👍')">👍</button>
+        <button onclick="insertEmoji('🙌')">🙌</button>
+        <button onclick="insertEmoji('😄')">😄</button>
+        <button onclick="insertEmoji('🥳')">🥳</button>
+      </div>
+    </footer>
+  </div>
+  <script>
+    function flipProfile() {
+      document.getElementById("flipInner").classList.toggle("flip");
+    }
+
+    function syncCaption() {
+      const username = document.getElementById("usernameInput").value;
+      document.getElementById("captionName").textContent = username;
+    }
+
+    function changeProfileImage(event) {
+      const reader = new FileReader();
+      reader.onload = function () {
+        document.getElementById("profileImage").src = reader.result;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+
+    let lastFocusedInput = null;
+    document.querySelectorAll('input[type="text"]').forEach(input => {
+      input.addEventListener('focus', () => {
+        lastFocusedInput = input;
+      });
+    });
+
+    function insertEmoji(emoji) {
+      if (!lastFocusedInput) return;
+      const input = lastFocusedInput;
+      const start = input.selectionStart;
+      const end = input.selectionEnd;
+      const text = input.value;
+      input.value = text.substring(0, start) + emoji + text.substring(end);
+      input.focus();
+      input.selectionStart = input.selectionEnd = start + emoji.length;
+      if (input.id === "usernameInput") syncCaption();
+    }
+
+    var myGamePiece, myObstacles = [], myScore;
+
+    function startGame() {
+      myGamePiece = new component(20, 20, "red", 10, 120);
+
+      myGamePiece.gravity = 0.05;
+      myScore = new component("30px", "Consolas", "black", 10, 30, "text");
+      myGameArea.start();
+    }
+
+    var myGameArea = {
+      canvas: document.createElement("canvas"),
+      start: function () {
+        this.canvas.width = 380;
+        this.canvas.height = 360;
+        this.context = this.canvas.getContext("2d");
+        document.querySelector(".post-image").appendChild(this.canvas);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);
+      },
+      clear: function () {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      }
+    };
+
+    function component(width, height, color, x, y, type) {
+      this.type = type;
+      this.score = 0;
+      this.width = width;
+      this.height = height;
+      this.speedX = 0;
+      this.speedY = 0;
+      this.x = x;
+      this.y = y;
+      this.gravity = 0;
+      this.gravitySpeed = 0;
+      this.update = function () {
+        var ctx = myGameArea.context;
+        if (this.type == "text") {
+          ctx.font = this.width + " " + this.height;
+          ctx.fillStyle = color;
+          ctx.fillText(this.text, this.x, this.y);
+        } else {
+          ctx.fillStyle = color;
+          ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+      };
+      this.newPos = function () {
+        this.gravitySpeed += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY + this.gravitySpeed;
+        this.hitBottom();
+      };
+      this.hitBottom = function () {
+        var rockbottom = myGameArea.canvas.height - this.height;
+        if (this.y > rockbottom) {
+          this.y = rockbottom;
+          this.gravitySpeed = 0;
+        }
+      };
+      this.crashWith = function (other) {
+        var myleft = this.x;
+        var myright = this.x + this.width;
+        var mytop = this.y;
+        var mybottom = this.y + this.height;
+        var otherleft = other.x;
+        var otherright = other.x + other.width;
+        var othertop = other.y;
+        var otherbottom = other.y + other.height;
+        var crash = true;
+        if (mybottom < othertop || mytop > otherbottom || myright < otherleft || myleft > otherright) {
+          crash = false;
+        }
+        return crash;
+      };
+    }
+
+    function updateGameArea() {
+      for (var i = 0; i < myObstacles.length; i++) {
+        if (myGamePiece.crashWith(myObstacles[i])) {
+          clearInterval(myGameArea.interval);
+          alert("Game Over! Your score: " + myGameArea.frameNo);
+          return;
+        }
+      }
+      myGameArea.clear();
+      myGameArea.frameNo += 1;
+      if (myGameArea.frameNo === 1 || everyinterval(150)) {
+        var x = myGameArea.canvas.width;
+        var height = Math.floor(Math.random() * (260 - 20 + 1) + 20);
+        var gap = Math.floor(Math.random() * (180 - 60 + 1) + 60);
+        myObstacles.push(new component(15, height, "green", x, 0));
+        myObstacles.push(new component(15, x - height - gap, "green", x, height + gap));
+      }
+      for (var i = 0; i < myObstacles.length; i++) {
+        myObstacles[i].x -= 1.5;
+        myObstacles[i].update();
+      }
+      myScore.text = "SCORE: " + myGameArea.frameNo;
+      myScore.update();
+      myGamePiece.newPos();
+      myGamePiece.update();
+    }
+
+    function everyinterval(n) {
+      return myGameArea.frameNo % n === 0;
+    }
+
+    function accelerate(n) {
+      myGamePiece.gravity = n;
+    }
+
+    function moveup() {
+      myGamePiece.gravitySpeed = -2;
+    }
+
+    function movedown() {
+      myGamePiece.y += 5;
+    }
+
+    function moveleft() {
+      myGamePiece.x -= 5;
+    }
+
+    function moveright() {
+      myGamePiece.x += 5;
+    }
+  </script>
+</body>
+</html>
