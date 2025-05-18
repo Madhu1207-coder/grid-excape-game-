@@ -82,7 +82,7 @@ Choose from a wide selection of emojis for username & caption!
 
 | Profile Flip       | Emoji Keyboard     | Game Over          |
 | ------------------ | ------------------ | ------------------ |
-| ![](https://github.com/Madhu1207-coder/grid-excape-game-/blob/main/progile%20flip%20.jpg) | ![](GIF-LINK-HERE) | ![](https://github.com/Madhu1207-coder/grid-excape-game-/blob/main/game%20over%20.jpg) |
+| ![](https://github.com/Madhu1207-coder/grid-excape-game-/blob/main/progile%20flip%20.jpg) | ![](https://github.com/Madhu1207-coder/grid-excape-game-/blob/main/emoji%20keyboard%20.jpg) | ![](https://github.com/Madhu1207-coder/grid-excape-game-/blob/main/game%20over%20.jpg) |
 
 ---
 
