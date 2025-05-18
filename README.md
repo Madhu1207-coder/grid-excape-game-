@@ -44,7 +44,7 @@ Front: Profile | Back: Game Player
 ````
 
 <p align="center">
-  <img src="GIF-LINK-HERE" width="50%">
+  <img src="GIF-LINK-HER" width="50%">
 </p>
 
 ### ✏️ Real-time Caption Sync
@@ -82,7 +82,7 @@ Choose from a wide selection of emojis for username & caption!
 
 | Profile Flip       | Emoji Keyboard     | Game Over          |
 | ------------------ | ------------------ | ------------------ |
-| ![](GIF-LINK-HERE) | ![](GIF-LINK-HERE) | ![](GIF-LINK-HERE) |
+| ![](https://github.com/Madhu1207-coder/grid-excape-game-/blob/main/progile%20flip%20.jpg) | ![](GIF-LINK-HERE) | ![](GIF-LINK-HERE) |
 
 ---
 
