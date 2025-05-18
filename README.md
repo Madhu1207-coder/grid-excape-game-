@@ -7,8 +7,13 @@
 </p>
 
 <p align="center">
-  <img src="GIF-LINK-HERE" width="70%" alt="InstaGame Demo">
+  <a href="https://1drv.ms/v/c/dd8a0b9fadfad057/ETrjslT8-3JGmOZdm3Uq3W8Bnpz7cZ4V0fCDnQ3mfuAw8A" target="_blank">
+    <img src="https://img.shields.io/badge/🎥 Watch Demo Video-Click%20Here-red?style=for-the-badge&logo=windows" />
+  </a>
 </p>
+
+
+
 
 ---
 
