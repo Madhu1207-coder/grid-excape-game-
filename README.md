@@ -120,7 +120,7 @@ Or use Live Server in VS Code for the best experience.
   <a href="https://github.com/Madhu1207-coder">
     <img src="https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github">
   </a>
-  <a href="https://www.linkedin.com/in/madhumitha-b-a545a525b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app/">
+  <a href="https://www.linkedin.com/in/madhumitha-b-a545a525b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
     <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin">
   </a>
   <a href="mailto:madhumithab1207@gmail.com">
