@@ -34,7 +34,7 @@ Features include:
 
 ### 🎮 Game View
 <p align="center">
-  <img src="GIF-LINK-HERE" width="60%" alt="Game Preview">
+  <img src="https://github.com/Madhu1207-coder/grid-excape-game-/blob/main/game%20preview.jpg" width="60%" alt="Game Preview">
 </p>
 
 ### 👤 Profile Flip  
