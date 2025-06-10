@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://1drv.ms/v/c/dd8a0b9fadfad057/ETrjslT8-3JGmOZdm3Uq3W8Bnpz7cZ4V0fCDnQ3mfuAw8A" target="_blank">
+  <a href="https://youtu.be/a87MJkgG3DE" target="_blank">
     <img src="https://img.shields.io/badge/🎥 Watch Demo Video-Click%20Here-red?style=for-the-badge&logo=windows" />
   </a>
 </p>
