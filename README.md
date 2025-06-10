@@ -134,5 +134,7 @@ Or use Live Server in VS Code for the best experience.
 <p align="center">🔁 Pull Requests are Welcome | 🎉 Contributions Appreciated</p>
 ```
 
----
+<p align="center">
+  <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/a2418f60390643.5a4b910e63f83.gif" width="300" alt="Thank You" />
+</p>
 
