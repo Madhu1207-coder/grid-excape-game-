@@ -6,11 +6,6 @@
   <img src="https://img.shields.io/badge/JavaScript-Game Logic-yellow?style=flat-square&logo=javascript" />
 </p>
 
-<p align="center">
-  <a href="https://youtu.be/a87MJkgG3DE" target="_blank">
-    <img src="https://img.shields.io/badge/🎥 Watch Demo Video-Click%20Here-red?style=for-the-badge&logo=windows" />
-  </a>
-</p>
 
 
 
