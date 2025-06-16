@@ -174,6 +174,18 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 --- 
 
+
+---
+
+### ⚠️ Usage Notice
+
+This project is developed by **Madhumitha B** for educational and demonstrative purposes only.
+
+❌ Do not reuse, copy, submit, or distribute this codebase as your own project.  
+🛡️ Protected under copyright law.
+
+📧 For permissions, reach out to: madhumithab1207@gmail.com
+
 <p align="center">
   <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/a2418f60390643.5a4b910e63f83.gif" width="300" alt="Thank You" />
 </p>
